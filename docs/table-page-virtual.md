@@ -10,6 +10,12 @@
 
 >>展开暂不支持
 
+>>5、骨架屏注意事项：不要把 `ly-table-page-v2` 放到 `ly-skeleton` 的默认内容里并用 `loading=true` 隐藏它。
+>>
+>>原因：`ly-skeleton` 在 `loading=true` 时不会渲染默认内容，导致 `ly-table-page-v2` 组件未挂载，从而不会触发接口请求（看起来像“接口没调用”）。
+>>
+>>推荐：让 `ly-table-page-v2` 始终挂载，骨架屏用“覆盖层”方式展示（比如在表格容器上方 `position:absolute` 盖一层 `ly-skeleton`），请求完成再隐藏覆盖层。
+
 ### 基础用法
 
 :::demo
