@@ -1,6 +1,6 @@
 # LyUI Cursor Skill
 
-面向 **Element-UI 体系二次开发项目 LyUI（ly-ui）** 的 Cursor Skill：将 LyUI 官网中文文档（`website/docs/zh-CN`）镜像同步到本仓库 `docs/`，并提供可被 Cursor Agent 直接检索的 `SKILL.md`、文档索引脚本与分层目录，用于在真实业务开发中快速定位组件能力、对齐用法示例与最佳实践。
+面向 **Element-UI 体系二次开发项目 LyUI（ly-ui）** 的 Cursor Skill：将 LyUI 提供可被 Cursor Agent 直接检索的 `SKILL.md`、文档索引脚本与分层目录，用于在真实业务开发中快速定位组件能力、对齐用法示例与最佳实践。
 
 ## 目录结构
 
