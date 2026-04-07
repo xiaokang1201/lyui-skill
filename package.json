@@ -1,0 +1,17 @@
+{
+  "name": "lyui-skill",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "LyUI Cursor Skill：同步 zh-CN 组件文档、提供索引与适配层占位",
+  "license": "UNLICENSED",
+  "scripts": {
+    "sync-docs": "node scripts/sync-docs.mjs",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "~5.6.3"
+  },
+  "main": "./src/index.ts",
+  "types": "./src/index.ts"
+}
