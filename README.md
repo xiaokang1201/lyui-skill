@@ -1,6 +1,6 @@
 # LyUI Cursor Skill
 
-将 LyUI 官网中文文档（`website/docs/zh-CN`）同步到本包 `docs/`，并附带 Cursor Agent 可用的 `SKILL.md`、文档索引脚本与分层目录，便于单独发布到 GitHub。
+面向 **Element-UI 体系二次开发项目 LyUI（ly-ui）** 的 Cursor Skill：将 LyUI 官网中文文档（`website/docs/zh-CN`）镜像同步到本仓库 `docs/`，并提供可被 Cursor Agent 直接检索的 `SKILL.md`、文档索引脚本与分层目录，用于在真实业务开发中快速定位组件能力、对齐用法示例与最佳实践。
 
 ## 目录结构
 
@@ -26,7 +26,43 @@ lyui-skill/
 
 ### Cursor
 
-将本目录复制到 `~/.cursor/skills/lyui/` 或项目内 `.cursor/skills/lyui/`，保留根目录 `SKILL.md`。
+推荐直接使用仓库地址安装，便于后续更新。
+
+#### 方式一：全局安装到 Cursor Skills（推荐）
+
+将仓库克隆到你的 Cursor skills 目录（保证根目录下有 `SKILL.md`）：
+
+```bash
+git clone https://github.com/xiaokang1201/lyui-skill ~/.cursor/skills/lyui
+```
+
+Windows 也可以放在用户目录下的 `.cursor/skills/lyui`（示例）：
+
+```bash
+git clone https://github.com/xiaokang1201/lyui-skill %USERPROFILE%\.cursor\skills\lyui
+```
+
+更新：
+
+```bash
+cd ~/.cursor/skills/lyui
+git pull
+```
+
+#### 方式二：安装到项目内（可随项目版本管理）
+
+作为项目的子模块放到 `.cursor/skills/lyui/`：
+
+```bash
+git submodule add https://github.com/xiaokang1201/lyui-skill .cursor/skills/lyui
+git submodule update --init --recursive
+```
+
+更新（拉取子模块到最新提交）：
+
+```bash
+git submodule update --remote --merge .cursor/skills/lyui
+```
 
 ### 同步文档（monorepo 内）
 
