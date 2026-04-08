@@ -80,6 +80,15 @@ npm run sync-docs
 npm run typecheck
 ```
 
+### 使用频率统计（离线）
+
+Cursor 目前不提供可直接读取的“每个 Skill 被触发/使用”的官方统计接口时，可以用本仓库提供的离线分析脚本，对本机对话记录（jsonl）做统计：
+
+```bash
+# 统计触发词命中、ly-* 组件提及、docs/*.md 引用次数（Top 30）
+npm run analyze-usage -- --input "<你的jsonl目录或文件>" --top 30
+```
+
 ## 与 ly-ui 的关系
 
 - **文档与 Skill**：在本仓库维护；`docs/installation.md` 描述的是**在业务项目里安装 `ly-ui`**，不是安装本 Skill 目录。
