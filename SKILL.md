@@ -20,7 +20,11 @@ description: >-
 ## 目录结构（本包）
 
 - `docs/` — API 与用法示例（Markdown）
-- `src/core/` — 文档清单与注册表（`doc-manifest.ts` 由脚本生成）
+- `src/core/` — 文档清单与注册表
+  - `doc-manifest.ts` — 文档文件清单（由脚本生成）
+  - `component-registry.ts` — **组件元数据注册表（含分类、关键词、关联组件）**
+  - `registry.ts` — 检索与搜索功能
+  - `types.ts` — 类型定义
 - `src/adapters/` — 框架说明：`vue` 为主实现；`react` / `angular` 为占位说明
 - `src/ui/` — 无运行时代码；真实组件在 npm `ly-ui`
 - `src/utils/` — 路径等小工具
@@ -40,15 +44,83 @@ description: >-
 - **按需引入**：从 `ly-ui` 引入组件并注册；模板多为 **`ly-` 前缀** kebab-case（如 `ly-button`）。
 - **表格**：`table.md`、`table-config.md`、`table-page.md`、`table-view.md`、`table-page-virtual.md` 职责不同，实现前读对应文档。
 
-## 独立包：ad-dialog
+## 组件检索指南（新增）
 
-不属于 `ly-ui` 主包：`yarn add ad-dialog`。详见 `docs/ad-dialog-doc.md`。
+本 Skill 现在包含智能组件检索系统，支持通过多种方式定位组件：
+
+### 1. 关键词搜索
+
+组件注册表包含丰富的关键词，支持模糊匹配：
+
+| 用户描述 | 匹配组件 |
+|---------|---------|
+| "提交按钮" | `button` |
+| "弹窗确认" | `dialog`, `message-box` |
+| "表格分页" | `table-page` |
+| "下拉选择" | `select`, `dropdown` |
+| "日期时间" | `date-picker`, `datetime-picker` |
+| "加载动画" | `loading`, `skeleton` |
+
+### 2. 组件分类
+
+组件按功能分为 7 大类：
+
+- **基础组件** (`basic`)：button, input, layout, card 等
+- **表单组件** (`form`)：form, select, date-picker, checkbox 等
+- **数据展示** (`data`)：table, tree, calendar, pagination 等
+- **反馈组件** (`feedback`)：dialog, message, loading, notification 等
+- **导航组件** (`navigation`)：menu, tabs, breadcrumb, dropdown 等
+- **业务组件** (`business`)：ad-dialog, emp-search, lyj-xlsx 等
+- **指南文档** (`guide`)：installation, quickstart, custom-theme 等
+
+### 3. 关联组件推荐
+
+每个组件都有关联组件列表，便于发现相关功能：
+
+- `table` → `table-page`, `pagination`, `form`
+- `form` → `input`, `select`, `checkbox`, `validate`
+- `dialog` → `message-box`, `drawer`, `popover`
+
+### 4. 独立包组件
+
+以下组件需要单独安装：
+
+| 组件 | 包名 | 安装命令 |
+|-----|------|---------|
+| 广告弹窗 | `ad-dialog` | `yarn add ad-dialog` |
 
 ## 推荐工作流
 
-1. 按组件名在 `docs/` 中查找同名 `.md`（或用 `src/core/registry.ts` 中的清单）。
-2. Read `lyui-skill/docs/<文件>.md` 获取 props、事件与示例。
-3. 实现时保持与文档一致的 import、标签名与样式引入。
+1. **理解需求**：分析用户需要的功能，使用关键词在注册表中搜索
+2. **定位文档**：通过 `src/core/component-registry.ts` 找到对应组件 ID
+3. **阅读文档**：Read `lyui-skill/docs/<组件名>.md` 获取 props、事件与示例
+4. **查看关联**：检查相关组件，确保选择最合适的解决方案
+5. **实现代码**：保持与文档一致的 import、标签名与样式引入
+
+## 快速参考
+
+### 常用组件速查
+
+| 场景 | 推荐组件 |
+|-----|---------|
+| 表单提交 | `form` + `button` |
+| 数据列表 | `table-page` |
+| 弹窗确认 | `dialog` 或 `message-box` |
+| 页面导航 | `menu` 或 `tabs` |
+| 加载状态 | `loading` 或 `skeleton` |
+| 日期选择 | `date-picker` |
+| 文件上传 | `upload` 或 `lbg-upload`（大文件）|
+| 人员选择 | `emp-search` 或 `select-user-grouping` |
+
+### 表格组件选择指南
+
+| 需求 | 使用组件 |
+|-----|---------|
+| 基础表格 | `table` |
+| 带分页的表格 | `table-page` |
+| 配置化表格 | `table-config` |
+| 只读展示 | `table-view` |
+| 大数据量 | `table-page-virtual` |
 
 ## 指南类（非单一组件）
 
@@ -60,3 +132,7 @@ description: >-
 | Nuxt | `docs/nuxt.md` |
 | JS 错误 | `docs/jsError.md` |
 | 脚手架 | `docs/zjCli.md` |
+
+## 独立包：ad-dialog
+
+不属于 `ly-ui` 主包：`yarn add ad-dialog`。详见 `docs/ad-dialog-doc.md`。

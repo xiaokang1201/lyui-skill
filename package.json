@@ -8,7 +8,9 @@
   "scripts": {
     "sync-docs": "node scripts/sync-docs.mjs",
     "analyze-usage": "node scripts/analyze-usage.mjs",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "build": "tsc",
+    "demo": "npm run build && node dist/examples/registry-demo.mjs"
   },
   "devDependencies": {
     "typescript": "~5.6.3"
