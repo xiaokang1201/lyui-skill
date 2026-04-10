@@ -9,11 +9,11 @@
   "cursorSkill": {
     "entry": "SKILL.md",
     "triggerTerms": [
+      "lyui",
+      "ly",
+      "lyui skill",
       "ly-ui",
-      "LyUI",
-      "ly-button",
-      "element ly",
-      "ad-dialog"
+      "LyUI"
     ]
   },
   "repositoryLayout": {
