@@ -10,7 +10,7 @@
     "analyze-usage": "node scripts/analyze-usage.mjs",
     "typecheck": "tsc --noEmit",
     "build": "tsc",
-    "demo": "npm run build && node dist/examples/registry-demo.mjs"
+    "demo": "npm run build && node dist/examples/registry-demo.js"
   },
   "devDependencies": {
     "typescript": "~5.6.3"
