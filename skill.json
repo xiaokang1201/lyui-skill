@@ -10,9 +10,10 @@
     "entry": "SKILL.md",
     "triggerTerms": [
       "lyui",
-      "ly",
       "ly-ui",
-      "LyUI"
+      "LyUI",
+      "组件库",
+      "LyUI组件库"
     ]
   },
   "repositoryLayout": {
